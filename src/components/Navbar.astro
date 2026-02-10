@@ -1,0 +1,36 @@
+<style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(51,51,51,0.9);
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+    }
+    .navbar a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 10px 16px;
+        line-height: 1;
+
+        border: 1px solid transparent;
+        box-sizing: border-box;
+    }
+    .navbar a:hover, .navbar a.active, .navbar a:target {
+        background: #bbb;
+        border: solid #bbb;
+    }
+    .nav-link {
+        margin-left: 20px;
+    }
+</style>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-item active" href="/">Home</a>
+        <a class="navbar-item" href="#games">Games</a>
+        <a class="navbar-item" href="#contact">Contact</a>
+        <a class="navbar-item" href="/about">About</a>
+    </div>
+</nav>
