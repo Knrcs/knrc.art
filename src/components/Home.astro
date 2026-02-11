@@ -1,28 +1,31 @@
 ---
-import background from '../assets/background.svg';
-const { description = "Hello and welcome to my website! I'm a Unity C# Developer based in Hamburg, Germany. I love creating games by improving or developing new game mechanics while also having fun creating innovative game experiences." } = Astro.props;
+import background from "../assets/background.svg";
+
+const {
+    description = "Hello and welcome to my website! I'm a Unity C# Developer based in Hamburg, Germany. I love creating games by improving or developing new game mechanics while also having fun creating innovative game experiences.",
+} = Astro.props;
 ---
+
 <style>
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-        background-color: #1a1a1a;
-        color: #ffffff;
+        background-color: var(--c-bg);
+        color: var(--c-textlight);
     }
-    .bg-video{
-        position:absolute;
+    .bg-video {
+        position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
         z-index: -1;
     }
-
 
     .hero {
         overflow: hidden;
@@ -37,20 +40,23 @@ const { description = "Hello and welcome to my website! I'm a Unity C# Developer
         text-align: left;
     }
 
-    .hero::after{
-        content:"";
+    .hero::after {
+        content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0,0,0,.35);
+        background: rgba(0, 0, 0, 0.35);
         z-index: -1;
         backdrop-filter: blur(8px);
     }
 
-    .hero-left{
+    .hero-left {
         max-width: 60ch;
     }
 
     .hero h1 {
+        font-family: "Itim", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
         font-size: 3.5rem;
         margin-bottom: 1rem;
     }
@@ -62,7 +68,7 @@ const { description = "Hello and welcome to my website! I'm a Unity C# Developer
 
     .features {
         padding: 4rem 2rem;
-        background-color: #2a2a2a;
+        background-color: var(--c-bg);
     }
 
     .features-grid {
@@ -74,7 +80,7 @@ const { description = "Hello and welcome to my website! I'm a Unity C# Developer
     }
 
     .feature-card {
-        background-color: #333333;
+        background-color: var(--c-bg);
         border-radius: 10px;
         padding: 2rem;
         text-align: center;
@@ -87,25 +93,36 @@ const { description = "Hello and welcome to my website! I'm a Unity C# Developer
         margin-bottom: 1rem;
     }
     .cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    }  
-
-    @media (max-width: 900px){
-        .hero{ grid-template-columns: 1fr;}
-        .hero-right{ order: -1;}
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--c-primary);
+        color: var(--c-text);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
     }
 
+    @media (max-width: 900px) {
+        .hero {
+            grid-template-columns: 1fr;
+        }
+        .hero-right {
+            order: -1;
+        }
+    }
 </style>
 <body>
     <section class="hero" id="home">
-        <video class="bg-video" autoplay muted loop playsinline preload="metadata" poster="src/assets/BuggyFeature.jpg">
-            <source src="src/assets/Buggy_trailer.mp4" type="video/mp4">
+        <video
+            class="bg-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="src/assets/BuggyFeature.jpg"
+        >
+            <source src="src/assets/Buggy_trailer.mp4" type="video/mp4" />
         </video>
         <div class="hero-left">
             <h1>Mikey Broz</h1>
@@ -113,9 +130,6 @@ const { description = "Hello and welcome to my website! I'm a Unity C# Developer
             <button class="cta-button">Games</button>
         </div>
 
-        <div class="hero-right">
-
-        </div>
-
+        <div class="hero-right"></div>
     </section>
-
+</body>

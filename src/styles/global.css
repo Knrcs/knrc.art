@@ -1,1 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+:root{
+    --c-bg: #392D32;
+    --c-bgdarker: #352b2c;
+    --c-text: #011627;
+    --c-textlight: #E0E0E0;
+    --c-primary: #ddff57;
+}
+
+h1{
+    font-family: "Itim", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', Tahoma, Geneva, Verdana, sans-serif;
+}

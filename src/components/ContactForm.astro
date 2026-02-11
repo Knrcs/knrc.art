@@ -1,16 +1,17 @@
 <style>
     .cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    }   
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--c-primary);
+        color: var(--c-text);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
+    }
 
     .contact-form {
-        background-color: #333333;
+        background-color: var(--c-bgdarker);
         padding: 2rem;
         border-radius: 5px;
     }
@@ -19,29 +20,77 @@
         margin-bottom: 1rem;
     }
 
-    input, textarea {
+    input,
+    textarea {
         width: 100%;
         padding: 0.8rem;
         margin-top: 0.5rem;
-        background-color: #333333;
-        border: 1px solid #444444;
-        color: white;
+        background-color: var(--c-bg);
+        border: 1px solid var(--c-text);
+        color: var(--c-textlight);
         border-radius: 5px;
+        font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    h1 {
+        font-family: "Itim", sans-serif;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: var(--c-primary);
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
 </style>
 
+<script>
+    import emailjs from "@emailjs/browser";
+    const publickey = import.meta.env.PUBLIC_EMAILJS_KEY;
+    const service = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+    const template = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+
+    emailjs.init({ publicKey: publickey }); // publicKey is required in options [web:34]
+
+    const form = document.getElementById("contact-form");
+
+    if (!(form instanceof HTMLFormElement)) {
+        console.error("contact-form not found");
+    } else {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            emailjs
+                .sendForm(service, template, form)
+                .then((res) => {
+                    console.log("SUCCESS!", res.status, res.text);
+                    form.reset();
+                })
+                .catch((err) => {
+                    console.log("FAILED...", err);
+                });
+        });
+    }
+</script>
+
 <section class="contact-form" id="contact">
-    <h2>Contact Me</h2>
-    <form id="contact">
+    <h1>Contact Me</h1>
+    <form id="contact-form">
         <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required />
         </div>
         <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            />
         </div>
         <div class="form-group">
-            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <textarea
+                placeholder="Your Message"
+                name="message"
+                rows="5"
+                required></textarea>
         </div>
         <button type="submit" class="cta-button">Send Message</button>
     </form>

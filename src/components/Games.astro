@@ -1,18 +1,27 @@
-
 <div class="games-wrap" id="games">
-  <h1>Games</h1>
+  <h1>Featured Games</h1>
   <section class="cards">
     <a class="card" href="#">
-      <img class="card__img" src="/src/assets/BuggyFeature.jpg" alt="Buggy preview" />
+      <img
+        class="card__img"
+        src="/src/assets/BuggyFeature.jpg"
+        alt="Buggy preview"
+      />
       <div class="card__overlay">
         <h3 class="card__title">Buggy</h3>
         <p class="card__meta">1 year</p>
-        <p class="card__desc">3D multiplayer insect catching and collecting game</p>
+        <p class="card__desc">
+          3D multiplayer insect catching and collecting game
+        </p>
       </div>
     </a>
 
     <a class="card" href="#">
-      <img class="card__img" src="/src/assets/BuggyFeature.jpg" alt="Circuit Breaker" />
+      <img
+        class="card__img"
+        src="/src/assets/BuggyFeature.jpg"
+        alt="Circuit Breaker"
+      />
       <div class="card__overlay">
         <h3 class="card__title">Circuit Breaker</h3>
         <p class="card__meta">6 months</p>
@@ -23,102 +32,110 @@
 </div>
 
 <style>
+  .cards {
+    --radius: 18px;
+    --gap: 22px;
 
-.cards{
-  --radius: 18px;
-  --gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--gap);
 
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--gap);
+    padding-inline: 24px;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-bottom: 24px;
+  }
 
-  padding-inline: 24px;
-  max-width: 1100px;
-  margin-inline: auto;
-  padding-bottom: 24px;
-}
+  .card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    padding: 0 0 140px 0;
+    aspect-ratio: 16 / 10;
+    background: var(--c-bg);
+    text-decoration: none;
+    color: var(--c-textlight);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    transform: translateZ(0);
+  }
 
-.card{
-  position:relative;
-  display:block;
-  border-radius: var(--radius);
-  overflow:hidden;
-  padding: 0 0 140px 0;
-  aspect-ratio: 16 / 10;
-  background:#111;
-  text-decoration:none;
-  color:#fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,.18);
-  transform: translateZ(0);
-}
+  .games-wrap {
+    padding-inline: 24px;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
 
-.games-wrap{
-  padding-inline: 24px;
-  max-width: 1100px;
-  margin-inline: auto;
-}
+  .games-wrap > h1 {
+    text-align: center; /* or left, your choice */
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--c-primary);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
 
-.games-wrap > h1{
-  text-align: center; /* or left, your choice */
-}
+  .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: transform 0.35s ease;
+    display: block;
+  }
 
-.card__img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transform: scale(1.02);
-  transition: transform .35s ease;
-  display:block;
-}
+  .card__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.18) 55%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    opacity: 0.96;
+    transition: opacity 0.25s ease;
+  }
 
-.card__overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:18px;
-  background: linear-gradient(to top,
-    rgba(0,0,0,.72) 0%,
-    rgba(0,0,0,.18) 55%,
-    rgba(0,0,0,0) 100%);
-  opacity: 0.96;
-  transition: opacity .25s ease;
-}
+  .card__title {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    letter-spacing: 0.2px;
+  }
 
-.card__title{
-  margin-bottom: 10px;
-  font-size:1.5rem;
-  letter-spacing:.2px;
-}
+  .card__meta {
+    margin: 6px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
 
-.card__meta{
-  margin:6px 0 0;
-  font-size:.9rem;
-  opacity:.85;
-}
+  .card__desc {
+    margin: 10px 0 0;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    max-width: 42ch;
+    opacity: 0.92;
+  }
 
-.card__desc{
-  margin:10px 0 0;
-  font-size:.92rem;
-  line-height:1.25;
-  max-width: 42ch;
-  opacity:.92;
-}
+  .card:hover .card__img,
+  .card:focus-visible .card__img {
+    transform: scale(1.08);
+  }
 
-.card:hover .card__img,
-.card:focus-visible .card__img{
-  transform: scale(1.08);
-}
+  .card:hover .card__overlay,
+  .card:focus-visible .card__overlay {
+    opacity: 1;
+  }
 
-.card:hover .card__overlay,
-.card:focus-visible .card__overlay{
-  opacity: 1;
-}
-
-.card:focus-visible{
-  outline: 3px solid rgba(255,255,255,.75);
-  outline-offset: 4px;
-}
-
+  .card:focus-visible {
+    outline: 3px solid var(--c-textlight);
+    opacity: 0.75;
+    outline-offset: 4px;
+  }
 </style>
