@@ -1,0 +1,200 @@
+<style>
+  :root {
+    --radius: 26px;
+  }
+
+  .about {
+    background: var(--c-bg);
+    padding: 48px 24px 40px;
+    color: var(--c-text);
+    font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h2 {
+    font-family: "Itim", sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--c-primary);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Left column */
+  .profile {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+  }
+
+  .profile-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 22px;
+    border: 4px solid var(--c-primary);
+    background: #fff;
+  }
+
+  .profile-actions {
+    display: grid;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hl {
+    color: var(--c-primary);
+  }
+
+  .btn {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--c-primary);
+    color: var(--c-primary);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  .btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: var(--radius);
+    border: 3px solid var(--c-primary);
+    padding: 18px 18px 16px;
+  }
+
+  .card--tall {
+    grid-row: span 2;
+  }
+
+  .card h3 {
+    margin: 0 0 8px;
+    color: var(--c-primary);
+  }
+
+  .card p {
+    margin: 0 0 12px;
+    line-height: 1.35;
+  }
+
+  .subbox {
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    padding: 12px 12px 8px;
+  }
+
+  .subbox h4 {
+    margin: 0 0 8px;
+    color: var(--c-primary);
+  }
+
+  .subbox ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .likes {
+    text-align: center;
+    margin: 26px auto 0;
+    max-width: 900px;
+    opacity: 0.9;
+  }
+
+  .likes > p {
+    color: var(--c-textlight);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .cards {
+      grid-template-columns: 1fr;
+    }
+    .card--tall {
+      grid-row: auto;
+    }
+  }
+</style>
+
+<section class="about" id="about">
+  <h2>About me</h2>
+
+  <div class="about-grid">
+    <aside class="profile">
+      <img
+        class="profile-photo"
+        src="/src/assets/portrait.JPG"
+        alt="Portrait photo"
+      />
+      <!-- <div class="profile-actions">
+        <a class="btn" href="resume-en.pdf" target="_blank" rel="noopener">Resume (EN)</a>
+        <a class="btn" href="resume-de.pdf" target="_blank" rel="noopener">Resume (DE)</a>
+      </div> -->
+    </aside>
+
+    <div class="cards">
+      <article class="card card--tall">
+        <h3 class="hl">Game Developer</h3>
+        <p>
+          I'm specialized in Unity Game Development. I can iterate game systems,
+          write documentation and integrate functions.
+        </p>
+
+        <div class="subbox">
+          <h4>Using</h4>
+          <ul>
+            <li>- Unreal Engine 5 (Blueprints)</li>
+            <li>- Unity (C#)</li>
+            <li>- Versioning (git)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card card--tall">
+        <h3>Generalist</h3>
+        <p>
+          Working solo on several projects allowed me to learn a handfull of
+          tools useful for developing games and help around in many creative
+          areas.
+        </p>
+
+        <div class="subbox">
+          <h4>Using</h4>
+          <ul>
+            <li>
+              - Adobe suite: After effects, Premiere, Photoshop, Illustrator,
+            </li>
+            <li>- Subtance Tools: Painter, Designer</li>
+            <li>- Blender (3,4,5)</li>
+            <li>- Reaper and FMOD</li>
+            <li>- Aseprite</li>
+            <li>- Google and Microsoft suite</li>
+            <li>- Teamtools like: Trello, Miro, Teams, Slack</li>
+          </ul>
+        </div>
+      </article>
+      <div class="likes"></div>
+    </div>
+  </div>
+</section>
