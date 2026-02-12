@@ -1,0 +1,21 @@
+---
+// src/pages/games.astro
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import ProfessionalGames from "../components/Games/ProfessionalGames.astro";
+import StudentGames from "../components/Games/StudentGames.astro";
+import GameJams from "../components/Games/GameJams.astro";
+import VideoCard from "../components/Games/VideoTitleCard.astro";
+--- 
+
+<Layout>
+    <Head />
+    <Navbar />
+    <VideoCard />
+    <ProfessionalGames />
+    <StudentGames />
+    <GameJams />
+    <Footer />
+</Layout>

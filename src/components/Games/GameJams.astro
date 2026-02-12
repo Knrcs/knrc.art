@@ -1,0 +1,361 @@
+<style>
+    :root {
+        --muted: #6b7280;
+        --card: #0b1220;
+        --pill: #1f2937;
+        --pillText: #e5e7eb;
+        --radius: 14px;
+        --gap: 26px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--c-bg);
+        color: var(--c-text);
+    }
+
+    .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 56px 22px 80px;
+    }
+
+    .hero {
+    }
+
+    .dark {
+        background-color: #0b1220;
+    }
+
+    .section-title {
+        text-align: center;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--c-primary);
+        font-size: 18px;
+        margin: 32px 0;
+        font-family: "Itim", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        margin-bottom: 1rem;
+    }
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--gap);
+    }
+
+    @media (max-width: 1100px) {
+        .grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    @media (max-width: 900px) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @media (max-width: 640px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+    }
+
+    .card {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #111827;
+        text-decoration: none;
+        color: white;
+        min-height: 235px;
+        max-height: 400px;
+        max-width: 200px;
+        box-shadow: 0 10px 28px rgba(2, 6, 23, 0.1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .thumb {
+        position: relative;
+        height: 225px;
+        width: 100%;
+        background: #0b1220;
+    }
+    .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    .body {
+        padding: 14px 14px 12px;
+        background:
+            linear-gradient(to bottom, rgba(2, 6, 23, 0), rgba(2, 6, 23, 0.15)),
+            #0b1220;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .name {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 1.2;
+        margin: 0;
+    }
+    .dates {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.72);
+        margin: 0;
+    }
+
+    .pills {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .pill {
+        font-size: 10px;
+        padding: 4px 7px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    .ext {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 28px;
+        height: 28px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .ext svg {
+        opacity: 0.9;
+    }
+
+    .card.locked {
+        pointer-events: none;
+        filter: grayscale(1);
+        opacity: 0.55;
+    }
+    .lockBadge {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(2, 6, 23, 0.25);
+    }
+    .lockCircle {
+        width: 52px;
+        height: 52px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(3px);
+    }
+
+    .span-center {
+        grid-column: 3 / span 1;
+    }
+    @media (max-width: 900px) {
+        .span-center {
+            grid-column: auto;
+        }
+    }
+</style>
+
+<main class="wrap">
+    <h2 class="section-title">Game Jams</h2>
+    <section class="grid">
+        <a class="card" href="https://knrc.itch.io/knightshade-escape">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-kse.png"
+                    alt="Knightshade Escape Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Knightshade Escape</p>
+                <p class="dates">June 2025</p>
+                <div class="pills">
+                    <span class="pill">Endless Runner</span>
+                    <span class="pill">Unity</span>
+                    <span class="pill">5 days</span>
+                    <span class="pill">htk Jam</span>
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://knrc.itch.io/froghawk">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-froghawk.png"
+                    alt="Froghawk Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Froghawk</p>
+                <p class="dates">December 2024</p>
+                <div class="pills">
+                    <span class="pill">Rougelike</span>
+                    <span class="pill">Unity</span>
+                    <span class="pill">5 days</span>
+                    <span class="pill">htk Jam</span>
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://knrc.itch.io/battleneck">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-battleneck.png"
+                    alt="Battleneck Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Battleneck</p>
+                <p class="dates">November 2024</p>
+                <div class="pills">
+                    <span class="pill">Card Game</span><span class="pill"
+                        >Tactical</span
+                    ><span class="pill">Unity</span><span class="pill"
+                        >3 days</span
+                    ><span class="pill">Innogames Jam</span>
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://luke-bombe.itch.io/marys-diner">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-marysdiner.png"
+                    alt="Marys Diner Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Mary's Diner</p>
+                <p class="dates">May 2024</p>
+                <div class="pills">
+                    <span class="pill">Chaotic</span><span class="pill"
+                        >Unity</span
+                    ><span class="pill">5 days</span><span class="pill"
+                        >htk Jam</span
+                    >
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://toastedgears.itch.io/magical-sweep">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-magicalsweep.png"
+                    alt="Magical Sweep Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Magical Sweep</p>
+                <p class="dates">December 2023</p>
+                <div class="pills">
+                    <span class="pill">Sweeping</span><span class="pill"
+                        >Unreal</span
+                    ><span class="pill">5 days</span><span class="pill"
+                        >htk Jam</span
+                    >
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://ditziedoodle.itch.io/dream-diver">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-dreamdiver.png"
+                    alt="Dream Diver Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Dream Diver</p>
+                <p class="dates">October 2023</p>
+                <div class="pills">
+                    <span class="pill">Collectathon</span><span class="pill"
+                        >Unity</span
+                    ><span class="pill">3 days</span><span class="pill"
+                        >Innogames Jam</span
+                    >
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://junesandknrc.itch.io/trink">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-trink.png"
+                    alt="Trink Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Trink</p>
+                <p class="dates">September 2023</p>
+                <div class="pills">
+                    <span class="pill">Collectathon</span><span class="pill"
+                        >GB Studio</span
+                    ><span class="pill">14 days</span><span class="pill"
+                        >GBJam 11</span
+                    >
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://joeent.itch.io/witchcraftgarden">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-witchcraftgarden.png"
+                    alt="Witchcraft Garden Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Witchcraft garden</p>
+                <p class="dates">June 2023</p>
+                <div class="pills">
+                    <span class="pill">Collectathon</span><span class="pill"
+                        >Unity</span
+                    ><span class="pill">5 days</span><span class="pill"
+                        >htk Jam</span
+                    >
+                </div>
+            </div>
+        </a>
+        <a class="card" href="https://knrc.itch.io/bakis-bakery">
+            <div class="thumb">
+                <img
+                    src="/src/assets/GameCapsules/capsule-bakiesbakery.png"
+                    alt="Bakies Bakery Cover"
+                />
+            </div>
+            <div class="body">
+                <p class="name">Bakie's Bakery</p>
+                <p class="dates">February 2023</p>
+                <div class="pills">
+                    <span class="pill">Visual Novel</span><span class="pill"
+                        >Unity</span
+                    ><span class="pill">5 days</span><span class="pill"
+                        >Fresenius Jam</span
+                    >
+                </div>
+            </div>
+        </a>
+    </section>
+</main>
